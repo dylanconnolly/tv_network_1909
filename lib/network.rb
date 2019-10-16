@@ -20,4 +20,16 @@ class Network
     end
     character.actor
   end
+
+  def payroll
+    #get list of characters
+    #create hash containing character.actor => character.salary
+    network_actors = @shows.map do |show|
+      show.characters
+    end
+    network_actors.flatten.reduce({}) do |payroll, character|
+      payroll[character.actor] = character.salary
+      payroll
+    end
+  end
 end
