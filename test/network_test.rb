@@ -43,5 +43,7 @@ class NetworkTest < Minitest::Test
 
     assert_instance_of Hash, @nbc.payroll
     assert_equal 4, @nbc.payroll.count
+    assert_equal ["David Hasselhoff", "William Daniels", "Amy Poehler", "Nick Offerman"], @nbc.payroll.keys
+    assert_equal [1600000, 1000000, 2000000, 1400000], @nbc.payroll.values
   end
 end
