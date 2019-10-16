@@ -33,6 +33,15 @@ class NetworkTest < Minitest::Test
   def test_network_can_find_its_highest_paid_actor
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
+
     assert_equal "Amy Poehler", @nbc.highest_paid_actor
+  end
+
+  def test_network_payroll
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+
+    assert_instance_of Hash, @nbc.payroll
+    assert_equal 4, @nbc.payroll.count
   end
 end
